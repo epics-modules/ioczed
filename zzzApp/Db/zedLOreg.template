@@ -1,0 +1,10 @@
+record(longout, "$(P)$(R)$(N)") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C$(C) S$(N) @0,32")
+}
+record(longin, "$(P)$(R)RB$(N)") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C$(C) S$(N) @0,32")
+}
+

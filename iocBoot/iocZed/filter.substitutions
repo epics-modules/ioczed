@@ -1,0 +1,26 @@
+# filter.substitutions
+
+file "$(OPTICS)/opticsApp/Db/filterBladeNoSensor.db" {
+  pattern
+  {P,      R,        N,   DESC,           OUT                  OUT_STRING,  IN_STRING}
+  {zzz:,   filter:,  1,   "Filter 1",     "zzz:userTran1.A",   "Out",       "In"}
+  {zzz:,   filter:,  2,   "Filter 2",     "zzz:userTran1.B",   "Out",       "In"}
+  {zzz:,   filter:,  3,   "Filter 3",     "zzz:userTran1.C",   "Out",       "In"}
+  {zzz:,   filter:,  4,   "Filter 4",     "zzz:userTran1.D",   "Out",       "In"}
+  {zzz:,   filter:,  5,   "Filter 5",     "zzz:userTran1.E",   "Out",       "In"}
+  {zzz:,   filter:,  6,   "Filter 6",     "zzz:userTran1.F",   "Out",       "In"}
+  {zzz:,   filter:,  7,   "Filter 7",     "zzz:userTran1.G",   "Out",       "In"}
+  {zzz:,   filter:,  8,   "Filter 8",     "zzz:userTran1.H",   "Out",       "In"}
+  {zzz:,   filter:,  9,   "Filter 9",     "zzz:userTran1.I",   "Out",       "In"}
+  {zzz:,   filter:,  10,  "Filter 10",    "zzz:userTran1.J",   "Out",       "In"}
+  {zzz:,   filter:,  11,  "Filter 11",    "zzz:userTran1.K",   "Out",       "In"}
+  {zzz:,   filter:,  12,  "Filter 12",    "zzz:userTran1.L",   "Out",       "In"}
+  {zzz:,   filter:,  13,  "Filter 13",    "zzz:userTran1.M",   "Out",       "In"}
+  {zzz:,   filter:,  14,  "Filter 14",    "zzz:userTran1.N",   "Out",       "In"}
+  {zzz:,   filter:,  15,  "Filter 15",    "zzz:userTran1.O",   "Out",       "In"}
+  {zzz:,   filter:,  16,  "Filter 16",    "zzz:userTran1.P",   "Out",       "In"}
+}
+
+file "$(OPTICS)/opticsApp/Db/filterDrive.db" {
+  {P="zzz:", R="filter:", DESC="Filters", KEV="zzz:userCalc1.A"}
+}

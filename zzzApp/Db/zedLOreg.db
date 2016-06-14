@@ -1,0 +1,159 @@
+record(longout, "$(P)reg0") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S0 @0,32")
+}
+record(longin, "$(P)regRB0") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S0 @0,32")
+}
+
+record(longout, "$(P)reg1") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S1 @0,32")
+}
+record(longin, "$(P)regRB1") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S1 @0,32")
+}
+
+record(longout, "$(P)reg2") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S2 @0,32")
+}
+record(longin, "$(P)regRB2") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S2 @0,32")
+}
+
+record(longout, "$(P)reg3") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S3 @0,32")
+}
+record(longin, "$(P)regRB3") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S3 @0,32")
+}
+
+record(longout, "$(P)reg4") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S4 @0,32")
+}
+record(longin, "$(P)regRB4") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S4 @0,32")
+}
+
+record(longout, "$(P)reg5") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S5 @0,32")
+}
+record(longin, "$(P)regRB5") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S5 @0,32")
+}
+
+record(longout, "$(P)reg6") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S6 @0,32")
+}
+record(longin, "$(P)regRB6") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S6 @0,32")
+}
+
+record(longout, "$(P)reg7") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S7 @0,32")
+}
+record(longin, "$(P)regRB7") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S7 @0,32")
+}
+
+record(longout, "$(P)reg8") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S8 @0,32")
+}
+record(longin, "$(P)regRB8") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S8 @0,32")
+}
+
+record(longout, "$(P)reg9") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S9 @0,32")
+}
+record(longin, "$(P)regRB9") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S9 @0,32")
+}
+
+record(longout, "$(P)reg10") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S10 @0,32")
+}
+record(longin, "$(P)regRB10") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S10 @0,32")
+}
+
+record(longout, "$(P)reg11") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S11 @0,32")
+}
+record(longin, "$(P)regRB11") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S11 @0,32")
+}
+
+record(longout, "$(P)reg12") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S12 @0,32")
+}
+record(longin, "$(P)regRB12") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S12 @0,32")
+}
+
+record(longout, "$(P)reg13") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S13 @0,32")
+}
+record(longin, "$(P)regRB13") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S13 @0,32")
+}
+
+record(longout, "$(P)reg14") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S14 @0,32")
+}
+record(longin, "$(P)regRB14") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S14 @0,32")
+}
+
+record(longout, "$(P)reg15") {
+  field(DTYP, "Zed")
+  field(OUT,  "#C0 S15 @0,32")
+}
+record(longin, "$(P)regRB15") {
+  field(SCAN, ".2 second")
+  field(DTYP, "Zed")
+  field(INP,  "#C0 S15 @0,32")
+}

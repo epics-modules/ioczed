@@ -1,0 +1,1113 @@
+
+file {
+	name="/net/s100dserv/xorApps/zed/epics/ioc/zzz/zzzApp/op/adl/zedLOreg.adl"
+	version=030107
+}
+display {
+	object {
+		x=543
+		y=25
+		width=526
+		height=432
+	}
+	clr=64
+	bclr=1
+	cmap=""
+	gridSpacing=10
+	gridOn=0
+	snapToGrid=1
+}
+"color map" {
+	ncolors=65
+	colors {
+		ffffff,
+		ececec,
+		dadada,
+		c8c8c8,
+		bbbbbb,
+		aeaeae,
+		9e9e9e,
+		919191,
+		858585,
+		787878,
+		696969,
+		5a5a5a,
+		464646,
+		2d2d2d,
+		000000,
+		00d800,
+		1ebb00,
+		339900,
+		2d7f00,
+		216c00,
+		fd0000,
+		de1309,
+		be190b,
+		a01207,
+		820400,
+		5893ff,
+		597ee1,
+		4b6ec7,
+		3a5eab,
+		27548d,
+		fbf34a,
+		f9da3c,
+		eeb62b,
+		e19015,
+		cd6100,
+		ffb0ff,
+		d67fe2,
+		ae4ebc,
+		8b1a96,
+		610a75,
+		a4aaff,
+		8793e2,
+		6a73c1,
+		4d52a4,
+		343386,
+		c7bb6d,
+		b79d5c,
+		a47e3c,
+		7d5627,
+		58340f,
+		99ffff,
+		73dfff,
+		4ea5f9,
+		2a63e4,
+		0a00b8,
+		ebf1b5,
+		d4db9d,
+		bbc187,
+		a6a462,
+		8b8239,
+		73ff6b,
+		52da3b,
+		3cb420,
+		289315,
+		1a7309,
+	}
+}
+"text entry" {
+	object {
+		x=30
+		y=40
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)32"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=30
+		y=90
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)33"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=30
+		y=140
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)34"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=30
+		y=190
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)35"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=30
+		y=240
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)36"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=30
+		y=24
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB32"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=30
+		y=74
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB33"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=30
+		y=124
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB34"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=30
+		y=174
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB35"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=30
+		y=224
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB36"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=30
+		y=290
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)37"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=30
+		y=340
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)38"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=30
+		y=390
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)39"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=30
+		y=274
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB37"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=30
+		y=324
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB38"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=30
+		y=374
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB39"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=150
+		y=40
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)40"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=150
+		y=90
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)41"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=150
+		y=140
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)42"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=150
+		y=190
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)43"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=150
+		y=240
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)44"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=150
+		y=24
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB40"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=150
+		y=74
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB41"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=150
+		y=124
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB42"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=150
+		y=174
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB43"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=150
+		y=224
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB44"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=150
+		y=290
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)45"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=150
+		y=340
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)46"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=150
+		y=390
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)47"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=150
+		y=274
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB45"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=150
+		y=324
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB46"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=150
+		y=374
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB47"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=270
+		y=40
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)48"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=270
+		y=90
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)49"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=270
+		y=140
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)50"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=270
+		y=190
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)51"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=270
+		y=240
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)52"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=270
+		y=24
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB48"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=270
+		y=74
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB49"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=270
+		y=124
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB50"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=270
+		y=174
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB51"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=270
+		y=224
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB52"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=270
+		y=290
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)53"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=270
+		y=340
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)54"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=270
+		y=390
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)55"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=270
+		y=274
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB53"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=270
+		y=324
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB54"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=270
+		y=374
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB55"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=390
+		y=40
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)56"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=390
+		y=90
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)57"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=390
+		y=140
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)58"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=390
+		y=190
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)59"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=390
+		y=240
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)60"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=390
+		y=24
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB56"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=390
+		y=74
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB57"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=390
+		y=124
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB58"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=390
+		y=174
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB59"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=390
+		y=224
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB60"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=390
+		y=290
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)61"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=390
+		y=340
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)62"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=389
+		y=390
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(R)63"
+		clr=14
+		bclr=51
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=390
+		y=274
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB61"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=390
+		y=324
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB62"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=390
+		y=374
+		width=100
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)RB63"
+		clr=54
+		bclr=1
+	}
+	format="hexadecimal"
+	limits {
+	}
+}
