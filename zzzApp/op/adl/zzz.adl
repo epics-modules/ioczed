@@ -1447,21 +1447,6 @@ composite {
 		args="P=zzz:,H=softGlue:"
 	}
 	display[1] {
-		label="softGlue2 Menu"
-		name="softGlueMenu.adl"
-		args="P=zzz:,H=softGlue2:"
-	}
-	display[3] {
-		label="shift 1"
-		name="softGlue_Shift32_bare.adl"
-		args="P=zzz:,H=softGlue:,N=1"
-	}
-	display[4] {
-		label="shift 2"
-		name="softGlue_Shift32_bare.adl"
-		args="P=zzz:,H=softGlue:,N=2"
-	}
-	display[5] {
 		label="SoftGlue Circuits"
 		name="configMenu.adl"
 		args="P=zzz:,CONFIG=SG"
