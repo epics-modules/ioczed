@@ -20,25 +20,31 @@ file scanParms_settings.req P=zzz:,SCANREC=zzz:scan1,Q=m5,POS="m5.VAL",RDBK="m5.
 file scanParms_settings.req P=zzz:,SCANREC=zzz:scan1,Q=m6,POS="m6.VAL",RDBK="m6.RBV"
 file scanParms_settings.req P=zzz:,SCANREC=zzz:scan1,Q=m7,POS="m7.VAL",RDBK="m7.RBV"
 file scanParms_settings.req P=zzz:,SCANREC=zzz:scan1,Q=m8,POS="m8.VAL",RDBK="m8.RBV"
+file userCalcGlobalEnable_settings.req P=zzz:
 file userCalcs10_settings.req P=zzz:
 $(P)userCalcEnable
-file userCalcGlobalEnable_settings.req P=zzz:
+file userCalcs10more_settings.req P=zzz:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20
 file userCalcOuts10_settings.req P=zzz:
 $(P)userCalcOutEnable
 file userCalcOuts10more_settings.req P=zzz:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20
 file userStringCalcs10_settings.req P=zzz:
 $(P)userStringCalcEnable
-file userArrayCalcs10_settings.req P=zzz:,N=8000
+file userStringCalcs10more_settings.req P=zzz:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20
+file userArrayCalcs10_settings.req P=zzz:,N=1000000
 $(P)userArrayCalcEnable
+file userArrayCalcs10more_settings.req P=zzz:,N=8000,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20
 file userTransforms10_settings.req P=zzz:
 $(P)userTranEnable
+file userTransforms10more_settings.req P=zzz:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20
 file userAve10_settings.req P=zzz:
+$(P)userAveEnable
+file userAve10more_settings.req P=zzz:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20
 file userStringSeqs10_settings.req P=zzz:
 $(P)userStringSeqEnable
+file userStringSeqs10more_settings.req P=zzz:,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19,N10=20
 file editSseq_settings.req P=zzz:,Q=ES:
 file interp_settings.req P=zzz:,N=2000
 file interpNew_settings.req P=zzz:,Q=1,N=2000
 file pvHistory_settings.req P=zzz:,N=1,MAXSAMPLES=1440
 file busyRecord_settings.req P=zzz:,R=mybusy
 file busyRecord_settings.req P=zzz:,R=mybusy2
-file FuncGen_settings.req P=zzz:,Q=fgen,OUT=dummy
