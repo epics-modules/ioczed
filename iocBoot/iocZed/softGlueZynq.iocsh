@@ -26,9 +26,10 @@ epicsEnvSet("READEVENT", "10")
 #    filename: Name of the FPGA-content hex file to load into the FPGA.
 #
 
-#initZynqIP("design_1_wrapper.bit")
+#initZynqIP("softGlue_FPGAContent_7010.bin")
 #system("loadFPGA_3_IO.sh")
-#system("cat $(SOFTGLUEZYNQ)/softGlueApp/Db/design_1_wrapper_3_IO.bin >/dev/xdevcfg")
+system("cat $(SOFTGLUEZYNQ)/softGlueApp/Db/softGlue_FPGAContent_7010.bin >/dev/xdevcfg")
+#system("cat $(SOFTGLUEZYNQ)/softGlueApp/Db/softGlue_FPGAContent_7020.bin >/dev/xdevcf")
 
 #-------------------------------------------------------------------------------
 #int initZynqIO(const char *portName, 

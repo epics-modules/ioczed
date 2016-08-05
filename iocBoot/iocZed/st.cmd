@@ -54,7 +54,7 @@ dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=zzz:,N=
 devA32ZedConfig(0, 0x43C00000, 140, 0, 0)
 devA32ZedConfig(1, 0x43C20000, 64, 0, 0)
 #devA32ZedConfig(2, 0x43C30000, 32, 0, 0)
-dbLoadTemplate("zedLOreg0.substitutions")
+#dbLoadTemplate("zedLOreg0.substitutions")
 dbLoadTemplate("zedLOreg1.substitutions")
 
 < softGlueZynq.iocsh
