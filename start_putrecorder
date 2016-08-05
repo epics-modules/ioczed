@@ -4,7 +4,7 @@
 
 PREFIX=$1
 
-EPICS_APP=/net/s100dserv/xorApps/zed/epics/ioc/zzz
+EPICS_APP=/net/s100dserv/xorApps/zed/epics/ioc/ioczed
 MACROS_PY_DIR=${EPICS_APP}/zzzApp/op/python
 
 output=`perl -s ${EPICS_APP}/release.pl -form=bash ${EPICS_APP}`

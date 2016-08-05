@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EPICS_APP=/net/s100dserv/xorApps/zed/epics/ioc/zzz
+EPICS_APP=/net/s100dserv/xorApps/zed/epics/ioc/ioczed
 EPICS_APP_ADL_DIR=${EPICS_APP}/zzzApp/op/adl
 
 output=`perl -s ${EPICS_APP}/release.pl -form=bash ${EPICS_APP}`

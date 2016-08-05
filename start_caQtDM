@@ -6,7 +6,7 @@ setenv PATH ${PATH}:/APSshare/bin
 unsetenv MEDM_EXEC_LIST
 setenv CAQTDM_EXEC_LIST 'Probe;probe &P &:UI File;echo &A:PV Name(s);echo &P:Copy PV name; echo -n &P| xclip -i -sel clip:Paste PV name;caput &P `xclip -o -sel clip`'
 
-setenv EPICS_APP /net/s100dserv/xorApps/zed/epics/ioc/zzz
+setenv EPICS_APP /net/s100dserv/xorApps/zed/epics/ioc/ioczed
 setenv EPICS_APP_UI_DIR ${EPICS_APP}/zzzApp/op/ui
 
 set output = `perl $EPICS_APP/release.pl $EPICS_APP`
