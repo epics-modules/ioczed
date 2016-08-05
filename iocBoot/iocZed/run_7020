@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# load FPGA
+# Can either do it here, or have softGlue.iocsh use "system" command.
+#loadFPGA_3_IO_7020.sh
+
+# ensure that multiple, simultaneous IOCs are not started by this user ID
+
+MY_UID=`id -u`
+IOC_PID="`/usr/bin/pgrep zzz\$ -u ${MY_UID}`"
+
+if [ "" != "${IOC_PID}" ] ; then
+  echo "zzz IOC is already running, won't start a new one, PID=${IOC_PID}"
+  exit 1
+fi
+
+# start the IOC
+
+../../bin/linux-arm/zzz st.cmd
