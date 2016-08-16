@@ -1752,48 +1752,6 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>350</x>
-                    <y>20</y>
-                    <width>70</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>51</red>
-                    <green>153</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-ML Mono</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>ml_monoGraphic;ml_monoSeq (tiny);ml_monoSeq;ml_monoSeq (All);Energy-scan parameters;Theta-scan parameters;Wavelength-scan parameters</string>
-            </property>
-            <property name="files">
-                <string>ml_monoGraphic.adl;ml_monoSeqCtl_tiny.adl;ml_monoSeqCtl.adl;ml_monoSeqCtl_All.adl;scanParms.adl;scanParms.adl;scanParms.adl</string>
-            </property>
-            <property name="args">
-                <string>P=zzz:,mY1=m1,mZ1=m2,mY2=m9,mZ2=m8,mT1=m7,mT2=m10,mB=m11;P=zzz:;P=zzz:;P=zzz:;P=zzz:,Q=ml_monoE,PV=ml_monoE;P=zzz:,Q=ml_monoTheta,PV=ml_monoTheta;P=zzz:,Q=ml_monoLambda,PV=ml_monoLambda</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false;false;false;false;false;false</string>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_38">
-            <property name="geometry">
-                <rect>
-                    <x>350</x>
                     <y>0</y>
                     <width>70</width>
                     <height>20</height>
@@ -1820,19 +1778,19 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>softGlueMenu;softGlue2 Menu;shift 1;shift 2;SoftGlue Circuits</string>
+                <string>softGlueMenu;SoftGlue Circuits;asynSoftGlue;asynSoftGlueReg</string>
             </property>
             <property name="files">
-                <string>softGlueMenu.adl;softGlueMenu.adl;softGlue_Shift32_bare.adl;softGlue_Shift32_bare.adl;configMenu.adl</string>
+                <string>softGlueMenu.adl;configMenu.adl;asynRecord.adl;asynRecord.adl</string>
             </property>
             <property name="args">
-                <string>P=zzz:,H=softGlue:;P=zzz:,H=softGlue2:;P=zzz:,H=softGlue:,N=1;P=zzz:,H=softGlue:,N=2;P=zzz:,CONFIG=SG</string>
+                <string>P=zzz:,H=softGlue:;P=zzz:,CONFIG=SG;P=zzz:,R=asynSoftGlue;P=zzz:,R=asynSoftGlueReg</string>
             </property>
             <property name="removeParent">
-                <string>false;false;false;false;false</string>
+                <string>false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_39">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_38">
             <property name="geometry">
                 <rect>
                     <x>350</x>
@@ -1874,7 +1832,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_40">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_39">
             <property name="geometry">
                 <rect>
                     <x>70</x>
@@ -1916,7 +1874,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_41">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_40">
             <property name="geometry">
                 <rect>
                     <x>350</x>
@@ -1958,7 +1916,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_42">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_41">
             <property name="geometry">
                 <rect>
                     <x>280</x>
@@ -2000,7 +1958,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_43">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_42">
             <property name="geometry">
                 <rect>
                     <x>350</x>
@@ -2042,7 +2000,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_44">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_43">
             <property name="geometry">
                 <rect>
                     <x>0</x>
@@ -2084,7 +2042,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_45">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_44">
             <property name="geometry">
                 <rect>
                     <x>70</x>
@@ -2126,7 +2084,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_46">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_45">
             <property name="geometry">
                 <rect>
                     <x>140</x>
@@ -2168,7 +2126,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_47">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_46">
             <property name="geometry">
                 <rect>
                     <x>210</x>
@@ -2210,7 +2168,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_48">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_47">
             <property name="geometry">
                 <rect>
                     <x>280</x>
@@ -2252,7 +2210,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false;false;false;false;false;false;false;false;false;false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_49">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_48">
             <property name="geometry">
                 <rect>
                     <x>350</x>
@@ -2276,25 +2234,25 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </color>
             </property>
             <property name="label">
-                <string>-MLL</string>
+                <string>-zed</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>MLLH;MLLH hard motors;MLLV;MLLV hard motors</string>
+                <string>zedLOreg 0 0-9;zedLOreg 0 10-19;zedLOreg 0 20-29;zedLOreg 0 30-39;zedLOreg 0 40-49;zedLOreg 0 50-59;zedLOreg 0 60-69;zedLOreg 0 70-79;zedLOreg 0 80-89;zedLOreg 0 90-99;zedLOreg 0 100-109;zedLOreg 0 110-119;zedLOreg 0 120-129;zedLOreg 1 0-31;zedLOreg 1 32-63;zedLOreg 2 0-31</string>
             </property>
             <property name="files">
-                <string>MLLH.adl;motor3x.adl;MLLV.adl;motor5x.adl</string>
+                <string>zedLOreg10.adl;zedLOreg10.adl;zedLOreg10.adl;zedLOreg10.adl;zedLOreg10.adl;zedLOreg10.adl;zedLOreg10.adl;zedLOreg10.adl;zedLOreg10.adl;zedLOreg10.adl;zedLOreg10.adl;zedLOreg10.adl;zedLOreg10.adl;zedLOreg0_31.adl;zedLOreg32_63.adl;zedLOreg0_31.adl</string>
             </property>
             <property name="args">
-                <string>P=zzz:,Q=MLLH:;P=zzz:,M1=m2,M2=m1,M3=m3;P=zzz:,Q=MLLV:;P=zzz:,M1=m4,M2=m5,M3=m6,M4=m7,M5=m8</string>
+                <string>P=zzz:,R=reg0_,N0=0,N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8,N9=9;P=zzz:,R=reg0_,N0=10,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19;P=zzz:,R=reg0_,N0=20,N1=21,N2=22,N3=23,N4=24,N5=25,N6=26,N7=27,N8=28,N9=29;P=zzz:,R=reg0_,N0=30,N1=31,N2=32,N3=33,N4=34,N5=35,N6=36,N7=37,N8=38,N9=39;P=zzz:,R=reg0_,N0=40,N1=41,N2=42,N3=43,N4=44,N5=45,N6=46,N7=47,N8=48,N9=49;P=zzz:,R=reg0_,N0=50,N1=51,N2=52,N3=53,N4=54,N5=55,N6=56,N7=57,N8=58,N9=59;P=zzz:,R=reg0_,N0=60,N1=61,N2=62,N3=63,N4=64,N5=65,N6=66,N7=67,N8=68,N9=69;P=zzz:,R=reg0_,N0=70,N1=71,N2=72,N3=73,N4=74,N5=75,N6=76,N7=77,N8=78,N9=79;P=zzz:,R=reg0_,N0=80,N1=81,N2=82,N3=83,N4=84,N5=85,N6=86,N7=87,N8=88,N9=89;P=zzz:,R=reg0_,N0=90,N1=91,N2=92,N3=93,N4=94,N5=95,N6=96,N7=97,N8=98,N9=99;P=zzz:,R=reg0_,N0=100,N1=101,N2=102,N3=103,N4=104,N5=105,N6=106,N7=107,N8=108,N9=109;P=zzz:,R=reg0_,N0=110,N1=111,N2=112,N3=113,N4=114,N5=115,N6=116,N7=117,N8=118,N9=119;P=zzz:,R=reg0_,N0=120,N1=121,N2=122,N3=123,N4=124,N5=125,N6=126,N7=127,N8=128,N9=129;P=zzz:,R=reg1_;P=zzz:,R=reg1_;P=zzz:,R=reg2_</string>
             </property>
             <property name="removeParent">
-                <string>false;false;false;false</string>
+                <string>false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_50">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_49">
             <property name="geometry">
                 <rect>
                     <x>140</x>
@@ -2334,6 +2292,48 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             </property>
             <property name="removeParent">
                 <string>false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;false</string>
+            </property>
+        </widget>
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_50">
+            <property name="geometry">
+                <rect>
+                    <x>350</x>
+                    <y>20</y>
+                    <width>70</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>51</red>
+                    <green>153</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="label">
+                <string>-anProc</string>
+            </property>
+            <property name="stackingMode">
+                <enum>Menu</enum>
+            </property>
+            <property name="labels">
+                <string>analogProcMenu;analogProc Circuits</string>
+            </property>
+            <property name="files">
+                <string>analogProcMenu.adl;configMenu.adl</string>
+            </property>
+            <property name="args">
+                <string>P=zzz:,H=AP:;P=zzz:,CONFIG=AP</string>
+            </property>
+            <property name="removeParent">
+                <string>false;false</string>
             </property>
         </widget>
         <zorder>caLabel_0</zorder>
