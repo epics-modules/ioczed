@@ -13,7 +13,7 @@ To run cross compiled EPICS and synApps on the MicroZed:
 	will accept the MicroZed as a known machine.  (This assumes you've
 	told IT that you need an IP address for the MAC address you used above.)
 
-1.	Do once:	make directories and links we'll need for mounting:
+1.	Do once: make directories and links we'll need for mounting:
 
 	mkdir /mnt/APSshare
 	mkdir /mnt/xorApps
@@ -25,8 +25,8 @@ To run cross compiled EPICS and synApps on the MicroZed:
 	cd /
 	ln -s /mnt/APSshare ./APSshare
 
-2.	Set for automatic boot-time mount of APSshare and xorApps with this
-	excerpt from /etc/rc.local:
+2.	Set for automatic boot-time mount of APSshare and xorApps by adding the
+	following lines to /etc/rc.local:
 
 	mount s100dserv.xray.aps.anl.gov:/APSshare /mnt/APSshare/
 	mount s100dserv.xray.aps.anl.gov:/xorApps /mnt/xorApps/
@@ -34,8 +34,7 @@ To run cross compiled EPICS and synApps on the MicroZed:
 4.	In home directory, create .profile to set path, etc.:
 
 	export PATH=$PATH:/net/s100dserv/xorApps/zed/epics/base-3.15.3/bin/linux-arm:.
-	alias zzzgo="cd /net/s100dserv/xorApps/zed/epics/ioc/zzz/iocBoot/iocZed"
-	alias zedgo="cd /net/s100dserv/xorApps/zed/epics/ioc/ioczed/iocBoot/iocZed"
+	alias iocgo="cd /net/s100dserv/xorApps/zed/epics/ioc/ioczed/iocBoot/iocZed"
 
 It would be nice to have NTP, and it would be nice not to have to run as root. 
 (This takes some effort, because you need to be able to map memory to talk to
@@ -68,24 +67,25 @@ This assumes the MicroZed is on the network, which it won't be until its
 MAC address has been set to the value we told IT we wanted to use for it.
 
 	linux% ssh root@microzed-j
-	root@microzed-j:~# . ./tmm.sh
-	root@microzed-j:~# zedgo
+	root@microzed-j:~# iocgo
 	root@microzed-j:.../iocBoot/iocZed# run
 
 
 Preparing and loading IP from Vivado into the MicroZed
 ------------------------------------------------------
 
-1.	Copy Vivado's output .bit file to local file, and run it through
-	fpga-bit-to-bin.py to make a .bin file suitable for loading into the FPGA:
+1.	Do once: tell Vivado to write a .bin file whenever it does "Generate Bitstream".
+	In Vivado, select the menu item "Tools>>Project Settings".
+	Select "Bitstream".
+	Check the "-bin_file" option.
+	
+2.	Whenever Vivado generates a new .bin file, run the following command from softGlueZynq/softGlueZynqApp/Db:
 
-	#!/bin/csh
-	cp /home/oxygen/MOONEY/zynq/VivadoProjects/softGlue_3_IO/softGlue_3_IO.runs/impl_1/design_1_wrapper.bit design_1_wrapper_3_IO.bit
-	fpga-bit-to-bin.py -f design_1_wrapper_3_IO.bit design_1_wrapper_3_IO.bin
+	flipBin.py /home/oxygen/MOONEY/zynq/VivadoProjects/softGlue_3_IO_7010/softGlue_3_IO_7010.runs/impl_1/design_1_wrapper.bin softGlue_FPGAContent_7010.bin
 
-2. Load the .bin file into the FPGA:
+3.	When the IOC boots, softGlueZynq.iocsh loads the .bin file into the FPGA with this command:
 
-	cat design_1_wrapper_3_IO.bin >/dev/xdevcfg
+	system("cat $(SOFTGLUEZYNQ)/softGlueApp/Db/softGlue_FPGAContent_7020.bin >/dev/xdevcfg")
 
 
 Making a device tree blob, so that Linux will know about the interrupt source
