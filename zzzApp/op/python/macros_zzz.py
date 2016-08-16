@@ -109,6 +109,7 @@ def testGate(prefix="zzz:", H="softGlue:", gate="AND", N="1", sleep=0.2):
 	recordDate = "Thu May 19 12:52:55 2016"
 	base = prefix + H + gate + "-" + N + "_"
 	errors = 0
+	epics.caput("zzz:caputRecorderComment.VAL","testing...", wait=True, timeout=1000000.0)
 	epics.caput(base+"IN1_Signal","1", wait=True, timeout=1000000.0)
 	errors += checkResult(base+"IN1_BI", 1, sleep)
 	epics.caput(base+"IN2_Signal","1", wait=True, timeout=1000000.0)
@@ -124,5 +125,288 @@ def testGate(prefix="zzz:", H="softGlue:", gate="AND", N="1", sleep=0.2):
 	epics.caput(base+"IN1_Signal","1", wait=True, timeout=1000000.0)
 	q = truth(gate,(1,0))
 	errors += checkResult(base+"OUT_BI", q, sleep)
-	print errors, " errors"
+	msg = "%d errors" % errors
+	epics.caput("zzz:caputRecorderComment.VAL",msg, wait=True, timeout=1000000.0)
+	#print errors, " errors"
 
+def _selectTest(name='noTest'):
+	epics.caput("zzz:SGMenu:name", "clear", wait=True, timeout=1000000.0)
+	epics.caput("zzz:SGMenu:name", name, wait=True, timeout=1000000.0)
+
+def _encoderTest():
+	epics.caput("zzz:softGlue:sseq1.PROC","0", wait=True, timeout=1000000.0)
+	time.sleep(.2)
+	q = epics.caget("zzz:softGlue:UpCntr-1_COUNTS")
+	ck = epics.caget("zzz:softGlue:UpCntr-2_COUNTS")
+	divisor = epics.caget("zzz:softGlue:UpDnCntr-1_PRESET")
+	err = 1 - (1.*ck/q)/divisor
+	passed = abs(err) < 1.e-6
+	if passed:
+		print "encoderTest: Passed"
+	else:
+		print "encoderTest: Failed: fractional err=", err
+	return passed
+
+
+def _dnCntrTest():
+	epics.caput("zzz:softGlue:sseq1.PROC","0", wait=True, timeout=1000000.0)
+	time.sleep(1.5)
+	divBy = []
+	divBy.append(epics.caget("zzz:softGlue:DnCntr-1_PRESET"))
+	divBy.append(epics.caget("zzz:softGlue:DnCntr-2_PRESET"))
+	divBy.append(epics.caget("zzz:softGlue:DnCntr-3_PRESET"))
+	divBy.append(epics.caget("zzz:softGlue:DnCntr-4_PRESET"))
+	cnt = []
+	cnt.append(epics.caget("zzz:softGlue:UpCntr-1_COUNTS"))
+	cnt.append(epics.caget("zzz:softGlue:UpCntr-2_COUNTS"))
+	cnt.append(epics.caget("zzz:softGlue:UpCntr-3_COUNTS"))
+	cnt.append(epics.caget("zzz:softGlue:UpCntr-4_COUNTS"))
+	cntClock = epics.caget("zzz:softGlue:UpDnCntr-1_COUNTS")
+
+	success = True
+	diff = -1
+	for i in range(4):
+		d = abs(cntClock/divBy[i] - cnt[i])
+		if d > 1:
+			success = 0
+			if d > diff:
+				diff = d
+
+	if success:
+		print "dnCntrTest: Passed"
+	else:
+		print "dnCntrTest: Failed: max diff=", diff
+		#print "cntClock=", cntClock, "cnt=", cnt, "divBy=", divBy
+	return success
+
+def circuitTests(test='all'):
+	print "\nsoftGlue circuit tests"
+
+	### encoder_HWOR_Test
+	if (test=="encoder_HWOR_Test" or test=="all"):
+		_selectTest("encoder_HWOR_Test")
+		epics.caput("zzz:softGlue:sseq1.PROC","0", wait=True, timeout=1000000.0)
+		time.sleep(.2)
+		q = epics.caget("zzz:softGlue:UpCntr-1_COUNTS")
+		ck = epics.caget("zzz:softGlue:UpCntr-2_COUNTS")
+		divisor = epics.caget("zzz:softGlue:UpDnCntr-1_PRESET")
+		err = 1 - (1.*ck/q)/divisor
+		if (abs(err) < 1.e-6):
+			print "encoder_HWOR_Test: Passed"
+		else:
+			print "encoder_HWOR_Test: Failed: fractional err=", err
+
+	### encoderTest
+	if (test=="encoderTest" or test=="all"):
+		_selectTest("encoderTest")
+
+		passed = _encoderTest()
+		if not passed:
+			# Try again with slower clock
+			epics.caput("zzz:softGlue:20MHZ_CLOCK_Signal", "")
+			epics.caput("zzz:softGlue:10MHZ_CLOCK_Signal", "ck")
+			print "\tTry again with slower clock."
+			passed = _encoderTest()
+
+
+	### divByNTest
+	if (test=="divByNTest" or test=="all"):
+		_selectTest("divByNTest")
+		epics.caput("zzz:softGlue:sseq1.PROC","0", wait=True, timeout=1000000.0)
+		time.sleep(1.5)
+		cnt = []
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-1_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-2_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-3_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-4_COUNTS"))
+		cntClock = epics.caget("zzz:softGlue:UpDnCntr-1_COUNTS")
+		success = True
+		diff = -1
+		for i in range(4):
+			d = abs(cntClock - cnt[i])
+			if d > 1:
+				success = 0
+				if d > diff:
+					diff = d
+	
+		if success:
+			print "divByNTest: Passed"
+		else:
+			print "divByNTest: Failed: max diff=", diff
+			print "cnt=", cnt, "cntClock=", cntClock
+	
+
+	### gateDlyTest
+	if (test=="gateDlyTest" or test=="all"):
+		_selectTest("gateDlyTest")
+		epics.caput("zzz:softGlue:BUFFER-1_IN_Signal","0")
+		time.sleep(.2)
+		epics.caput("zzz:softGlue:busy1","Busy")
+		time.sleep(1.5)
+		# Ideally, an interrupt should return busy to "Done".
+		epics.caput("zzz:softGlue:busy1","Done")
+
+		cnt = []
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-1_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-2_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-3_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-4_COUNTS"))
+		cntClock = epics.caget("zzz:softGlue:UpCntr-1_COUNTS")
+
+		success = True
+		diff = -1
+		for i in range(4):
+			d = abs(cntClock - cnt[i])
+			if d > 1:
+				success = 0
+				if d > diff:
+					diff = d
+	
+		if success:
+			print "gateDlyTest: Passed"
+		else:
+			print "gateDlyTest: Failed: max diff=", diff
+			print "cnt=", cnt, "cntClock=", cntClock
+
+	### counterTest
+	if (test=="counterTest" or test=="all"):
+		_selectTest("counterTest")
+		epics.caput("zzz:softGlue:sseq1.PROC","0", wait=True, timeout=1000000.0)
+		time.sleep(1.5)
+		cnt = []
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-1_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-2_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-3_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-4_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-1_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-2_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-3_COUNTS"))
+		cntClock = epics.caget("zzz:softGlue:UpDnCntr-4_COUNTS")
+
+		success = True
+		diff = -1
+		for i in range(7):
+			d = abs(cntClock - cnt[i])
+			if d > 1:
+				success = 0
+				if d > diff:
+					diff = d
+
+		if success:
+			print "counterTest: Passed"
+		else:
+			print "counterTest: Failed: max diff=", diff
+			print "cnt=", cnt, "cntClock=", cntClock
+
+	### gateDlyTest1
+	if (test=="gateDlyTest1" or test=="all"):
+		_selectTest("gateDlyTest1")
+		epics.caput("zzz:softGlue:BUFFER-2_IN_Signal","1!", wait=True, timeout=1000000.0)
+		epics.caput("zzz:softGlue:sseq1.PROC","0", wait=True, timeout=1000000.0)
+		time.sleep(1.5)
+		dly = []
+		dly.append(epics.caget("zzz:softGlue:GateDly-1_DLY"))
+		dly.append(epics.caget("zzz:softGlue:GateDly-2_DLY"))
+		dly.append(epics.caget("zzz:softGlue:GateDly-3_DLY"))
+		dly.append(epics.caget("zzz:softGlue:GateDly-4_DLY"))
+		cnt = []
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-1_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-2_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-3_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-4_COUNTS"))
+
+		success = True
+		diff = -1
+		for i in range(4):
+			d = abs(dly[i] - cnt[i])
+			if d > 1:
+				success = 0
+				if d > diff:
+					diff = d
+
+		if success:
+			print "gateDlyTest1: Passed"
+		else:
+			print "gateDlyTest1: Failed: max diff=", diff
+			print "cnt=", cnt, "dly=", dly
+	
+	### DFFTest
+	if (test=="DFFTest" or test=="all"):
+		_selectTest("DFFTest")
+		epics.caput("zzz:softGlue:sseq1.PROC","0", wait=True, timeout=1000000.0)
+		time.sleep(1.5)
+	
+		cnt = []
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-1_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-2_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-3_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-4_COUNTS"))
+		cntClock = epics.caget("zzz:softGlue:UpDnCntr-1_COUNTS")
+
+		success = True
+		diff = -1
+		for i in range(4):
+			d = abs(cntClock/2 - cnt[i])
+			if d > 1:
+				success = 0
+				if d > diff:
+					diff = d
+	
+		if success:
+			print "DFFTest: Passed"
+		else:
+			print "DFFTest: Failed: max diff=", diff
+			print "cnt=", cnt, "cntClock/2=", cntClock/2
+
+	### gatedScalerTest
+	if (test=="gatedScalerTest" or test=="all"):
+		_selectTest("gatedScalerTest")
+		epics.caput("zzz:softGlue:BUFFER-1_IN_Signal","0")
+		epics.caput("zzz:softGlue:busy1","Busy")
+		time.sleep(1.5)
+		# Ideally, an interrupt should return busy to "Done".
+		epics.caput("zzz:softGlue:busy1","Done")
+	
+		cnt = []
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-1_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-2_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-3_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpCntr-4_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-1_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-2_COUNTS"))
+		cnt.append(epics.caget("zzz:softGlue:UpDnCntr-3_COUNTS"))
+		cntClock = epics.caget("zzz:softGlue:UpDnCntr-4_COUNTS")
+
+		success = True
+		diff = -1
+		for i in range(7):
+			d = abs(cntClock - cnt[i])
+			if d > 1:
+				success = 0
+				if d > diff:
+					diff = d
+
+		if success:
+			print "gatedScalerTest: Passed"
+		else:
+			print "gatedScalerTest: Failed: max diff=", diff
+			print "cnt=", cnt, "cntClock=", cntClock
+
+	### dnCntrTest
+	if (test=="dnCntrTest" or test=="all"):
+		_selectTest("dnCntrTest")
+		passed = _dnCntrTest()
+	
+		if not passed:
+			# Try again with slower clock
+			epics.caput("zzz:softGlue:50MHZ_CLOCK_Signal", "")
+			epics.caput("zzz:softGlue:20MHZ_CLOCK_Signal", "ck")
+			print "\tTry again with slower clock."
+			passed = _dnCntrTest()
+
+		if not passed:
+			# Try again with slower clock
+			epics.caput("zzz:softGlue:20MHZ_CLOCK_Signal", "")
+			epics.caput("zzz:softGlue:10MHZ_CLOCK_Signal", "ck")
+			print "\tTry again with slower clock."
+			passed = _dnCntrTest()
