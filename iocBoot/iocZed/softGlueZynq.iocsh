@@ -29,7 +29,7 @@ epicsEnvSet("READEVENT", "10")
 #initZynqIP("softGlue_FPGAContent_7010.bin")
 #system("loadFPGA_3_IO.sh")
 system("cat $(SOFTGLUEZYNQ)/softGlueApp/Db/softGlue_FPGAContent_7010.bin >/dev/xdevcfg")
-#system("cat $(SOFTGLUEZYNQ)/softGlueApp/Db/softGlue_FPGAContent_7020.bin >/dev/xdevcf")
+#system("cat $(SOFTGLUEZYNQ)/softGlueApp/Db/softGlue_FPGAContent_7020.bin >/dev/xdevcfg")
 
 #-------------------------------------------------------------------------------
 #int initZynqIO(const char *portName, 
