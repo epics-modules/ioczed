@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # load FPGA
-# Can either do it here, or have softGlue.iocsh use "system" command.
+# Can either do it here, or have analogProcZynq.iocsh use "system" command.
 #loadFPGA_analogProc.sh
 
 # ensure that multiple, simultaneous IOCs are not started by this user ID
