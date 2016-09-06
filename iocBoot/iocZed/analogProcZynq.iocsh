@@ -20,6 +20,8 @@ epicsEnvSet("READEVENT", "10")
 
 #initZynqIP("design_1_wrapper.bit")
 #system("loadFPGA_analogProc.sh")
+system("cat $(SOFTGLUEZYNQ)/softGlueApp/Db/analogProc_FPGAContent_7010.bin >/dev/xdevcfg")
+#system("cat $(SOFTGLUEZYNQ)/softGlueApp/Db/analogProc_FPGAContent_7020.bin >/dev/xdevcfg")
 
 #-------------------------------------------------------------------------------
 #int initZynqIO(const char *portName, 
