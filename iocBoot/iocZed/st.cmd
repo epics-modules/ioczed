@@ -16,7 +16,7 @@ errlogInit(20000)
 
 # Specify largest array CA will transport
 # Note for N doubles, need N*8 bytes+some overhead
-epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 64010
+epicsEnvSet EPICS_CA_MAX_ARRAY_BYTES 200100
 
 ################################################################################
 # Tell EPICS all about the record types, device-support modules, drivers,
@@ -53,9 +53,18 @@ dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=zzz:,N=
 #    iLevel  = interrupt level  (MRD100 ONLY !!)    
 devA32ZedConfig(0, 0x43C00000, 140, 0, 0)
 devA32ZedConfig(1, 0x43C20000, 64, 0, 0)
-#devA32ZedConfig(2, 0x43C30000, 32, 0, 0)
+devA32ZedConfig(2, 0x43C30000, 4, 0, 0)
+devA32ZedConfig(3, 0x43C40000, 4, 0, 0)
 #dbLoadTemplate("zedLOreg0.substitutions")
 dbLoadTemplate("zedLOreg1.substitutions")
+dbLoadTemplate("zedLOreg2.substitutions")
+dbLoadTemplate("zedLOreg3.substitutions")
+
+# test MCS code
+dbLoadRecords("$(SOFTGLUEZYNQ)/db/MCS.db","P=zzz:,Q=MCS,N=50000")
+doAfterIocInit("seq &MCS, 'P=zzz:,Q=MCS,H=SG:,N=4000'")
+
+
 
 < softGlueZynq.iocsh
 
