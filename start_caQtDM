@@ -90,8 +90,8 @@ endif
 if ( ${?QUADEM} ) then
 	setenv QTDMDP ${QTDMDP}:${QUADEM}/quadEMApp/op/ui
 endif
-if ( ${?SOFTGLUE} ) then
-	setenv QTDMDP ${QTDMDP}:${SOFTGLUE}/softGlueApp/op/ui
+if ( ${?SOFTGLUEZYNQ} ) then
+	setenv QTDMDP ${QTDMDP}:${SOFTGLUEZYNQ}/softGlueApp/op/ui
 endif
 if ( ${?SSCAN} ) then
 	setenv QTDMDP ${QTDMDP}:${SSCAN}/sscanApp/op/ui
@@ -115,9 +115,7 @@ setenv CAQTDM_DISPLAY_PATH ${QTDMDP}:${CAQTDM_DISPLAY_PATH}
 endif
 
 # This should agree with the environment variable set by the ioc
-setenv EPICS_CA_MAX_ARRAY_BYTES 64008
-# for areaDetector
-#setenv EPICS_CA_MAX_ARRAY_BYTES 2000100
+setenv EPICS_CA_MAX_ARRAY_BYTES 200100
 
 cd ${EPICS_APP_UI_DIR}
 
