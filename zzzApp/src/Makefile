@@ -323,10 +323,6 @@ ifneq (,$(findstring linux, $(T_A)))
 	DBD  += ioczzzLinux.dbd
 	ioczzzLinux_DBD += zzz_Common.dbd
 
-	# for microzed
-	ioczzzLinux_DBD += devA32Zed.dbd
-	zzz_SRCS_Linux += devA32Zed.c
-
 	ifdef SOFTGLUEZYNQ
 		ioczzzLinux_DBD += softGlueZynqSupport.dbd
 		zzz_LIBS_Linux += softGlueZynq
