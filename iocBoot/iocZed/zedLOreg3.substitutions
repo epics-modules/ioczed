@@ -1,9 +1,0 @@
-file "$(TOP)/zzzApp/Db/zedLOreg.template"
-{
-pattern
-{P,R,C,N, SCAN}
-{zzz:,reg3_,3,0,0}
-{zzz:,reg3_,3,1,8}
-{zzz:,reg3_,3,2,8}
-{zzz:,reg3_,3,3,8}
-}
