@@ -1,0 +1,9 @@
+file "$(TOP)/zzzApp/Db/zedLOreg.template"
+{
+pattern
+{P,R,C,N, SCAN}
+{zzz:,reg2_,2,0,0}
+{zzz:,reg2_,2,1,8}
+{zzz:,reg2_,2,2,8}
+{zzz:,reg2_,2,3,8}
+}
