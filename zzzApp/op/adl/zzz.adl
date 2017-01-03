@@ -1,12 +1,12 @@
 
 file {
-	name="/net/s100dserv/xorApps/zed/epics/ioc/zzz/zzzApp/op/adl/zzz.adl"
+	name="/net/s100dserv/xorApps/zed/epics/ioc/tmm/zzzApp/op/adl/zzz.adl"
 	version=030107
 }
 display {
 	object {
-		x=1183
-		y=25
+		x=609
+		y=734
 		width=440
 		height=180
 	}
@@ -1442,14 +1442,34 @@ composite {
 		height=20
 	}
 	display[0] {
-		label="softGlueMenu"
-		name="softGlueMenu.adl"
-		args="P=zzz:,H=softGlue:"
+		label="softGlueZynqMenu"
+		name="softGlueZynqMenu.adl"
+		args="P=zzz:,H=SG:"
 	}
 	display[1] {
 		label="SoftGlue Circuits"
 		name="configMenu.adl"
 		args="P=zzz:,CONFIG=SG"
+	}
+	display[2] {
+		label="MCS"
+		name="MCS.adl"
+		args="P=zzz:,Q=MCS"
+	}
+	display[4] {
+		label="DMA test"
+		name="MCS.adl"
+		args="P=zzz:,Q=DMA"
+	}
+	display[5] {
+		label="pixelTrigger"
+		name="pixelTrigger.adl"
+		args="P=zzz:,Q=1"
+	}
+	display[6] {
+		label="MCS"
+		name="MCS.adl"
+		args="P=zzz:,Q=1"
 	}
 	display[7] {
 		label="asynSoftGlue"
@@ -1460,6 +1480,21 @@ composite {
 		label="asynSoftGlueReg"
 		name="asynRecord.adl"
 		args="P=zzz:,R=asynSoftGlueReg"
+	}
+	display[9] {
+		label="pixelTriggerImage 1"
+		name="pixelTrigger2D.adl"
+		args="P=zzz:,letter=I"
+	}
+	display[10] {
+		label="pixelTriggerImage 2"
+		name="pixelTrigger2D.adl"
+		args="P=zzz:,letter=J"
+	}
+	display[11] {
+		label="readSoftGlueCounter"
+		name="readSoftGlueCounter.adl"
+		args="P=zzz:,Q=SG_RdCntr:"
 	}
 	clr=0
 	bclr=17
@@ -1632,9 +1667,19 @@ composite {
 		name="countDownTimer.adl"
 		args="P=zzz:,N=1"
 	}
+	display[1] {
+		label="alarmClock"
+		name="alarmClock.adl"
+		args="P=zzz:,A=1"
+	}
+	display[2] {
+		label="timer"
+		name="timer.adl"
+		args="P=zzz:,N=1"
+	}
 	clr=0
 	bclr=17
-	label="-countDown"
+	label="-etcTime"
 }
 "related display" {
 	object {
@@ -1651,22 +1696,6 @@ composite {
 	clr=0
 	bclr=17
 	label="-alarmClock"
-}
-"related display" {
-	object {
-		x=140
-		y=160
-		width=70
-		height=20
-	}
-	display[0] {
-		label="timer"
-		name="timer.adl"
-		args="P=zzz:,N=1"
-	}
-	clr=0
-	bclr=17
-	label="-timer"
 }
 "related display" {
 	object {
@@ -1779,7 +1808,7 @@ composite {
 	object {
 		x=350
 		y=160
-		width=70
+		width=35
 		height=20
 	}
 	display[0] {
@@ -1833,38 +1862,38 @@ composite {
 		args="P=zzz:,R=reg0_,N0=90,N1=91,N2=92,N3=93,N4=94,N5=95,N6=96,N7=97,N8=98,N9=99"
 	}
 	display[10] {
-		label="zedLOreg 0 100-109"
-		name="zedLOreg10.adl"
-		args="P=zzz:,R=reg0_,N0=100,N1=101,N2=102,N3=103,N4=104,N5=105,N6=106,N7=107,N8=108,N9=109"
-	}
-	display[11] {
-		label="zedLOreg 0 110-119"
-		name="zedLOreg10.adl"
-		args="P=zzz:,R=reg0_,N0=110,N1=111,N2=112,N3=113,N4=114,N5=115,N6=116,N7=117,N8=118,N9=119"
-	}
-	display[12] {
-		label="zedLOreg 0 120-129"
-		name="zedLOreg10.adl"
-		args="P=zzz:,R=reg0_,N0=120,N1=121,N2=122,N3=123,N4=124,N5=125,N6=126,N7=127,N8=128,N9=129"
-	}
-	display[13] {
 		label="zedLOreg 1 0-31"
 		name="zedLOreg0_31.adl"
 		args="P=zzz:,R=reg1_"
 	}
-	display[14] {
+	display[11] {
 		label="zedLOreg 1 32-63"
 		name="zedLOreg32_63.adl"
 		args="P=zzz:,R=reg1_"
 	}
-	display[15] {
-		label="zedLOreg 2 0-31"
-		name="zedLOreg0_31.adl"
+	display[12] {
+		label="zedLOreg 2 0-3"
+		name="zedLOreg0_3.adl"
 		args="P=zzz:,R=reg2_"
+	}
+	display[13] {
+		label="zedLOreg 3 0-3"
+		name="zedLOreg0_3.adl"
+		args="P=zzz:,R=reg3_"
+	}
+	display[14] {
+		label="zedLOreg 4 0-4"
+		name="zedLOreg0_4.adl"
+		args="P=zzz:,R=reg4_"
+	}
+	display[15] {
+		label="zedLOreg 5 0-31"
+		name="zedLOreg0_31.adl"
+		args="P=zzz:,R=reg5_"
 	}
 	clr=0
 	bclr=17
-	label="-zed"
+	label="-zed1"
 }
 "related display" {
 	object {
@@ -1977,4 +2006,36 @@ composite {
 	clr=0
 	bclr=17
 	label="-anProc"
+}
+"related display" {
+	object {
+		x=140
+		y=160
+		width=70
+		height=20
+	}
+	display[0] {
+		label="Agilent_33220A"
+		name="Agilent_33220A.adl"
+		args="P=zzz:,S=1"
+	}
+	clr=0
+	bclr=17
+	label="-waveGen"
+}
+"related display" {
+	object {
+		x=385
+		y=160
+		width=35
+		height=20
+	}
+	display[14] {
+		label="zedLOreg 6 0-4"
+		name="zedLOreg0_4.adl"
+		args="P=zzz:,R=reg6_"
+	}
+	clr=0
+	bclr=17
+	label="-zed2"
 }
