@@ -1,16 +1,18 @@
 # BEGIN softGlue.iocsh ----------------------------------------------------------
 
-epicsEnvSet("IPORT", "AXI0INT")
-epicsEnvSet("SPORT", "AXI0")
-epicsEnvSet("RPORT", "AXI1")
+
 epicsEnvSet("PREFIX", "zzz:")
 epicsEnvSet("INSTANCE", "SG:")
 epicsEnvSet("CONFIG", "SG")
+
 epicsEnvSet("READEVENT", "10")
+epicsEnvSet("IPORT", "AXI0INT")
+epicsEnvSet("SPORT", "AXI0")
+epicsEnvSet("RPORT", "AXI1")
 
 
 #var devAsynSoftGlueDebug,1
-#var drvZynqDebug,10
+#var drvZynqDebug,1
 ################################################################################
 #    Initialize the FPGA
 #-----------------------
@@ -28,13 +30,10 @@ system("cat $(SOFTGLUEZYNQ)/softGlueApp/Db/softGlue_FPGAContent_7010.bin >/dev/x
 #system("cat $(SOFTGLUEZYNQ)/softGlueApp/Db/softGlue_FPGAContent_7020.bin >/dev/xdevcfg")
 
 #-------------------------------------------------------------------------------
-#int initZynqInterrupts(const char *portName, int AXI_Address) {
+#int initZynqInterrupts(const char *portName, const char *componentName) {
 #    portName: Name of asyn port for component at sopcOffset
-#    AXI_Address:     AXI_Address.
-#
-# For example:
-# initZynqInterrupts("AXI0INT",0x43c10000)
-initZynqInterrupts("$(IPORT)",0x43c10000)
+#    componentName: name of softGlue AXI component.
+initZynqInterrupts("$(IPORT)","softGlue_")
 
 ################################################################################
 #    Initialize softGlue signal-name support
@@ -42,13 +41,9 @@ initZynqInterrupts("$(IPORT)",0x43c10000)
 #    All instances of a single-register component are initialized with a single
 #    call, as follows:
 #
-# initZynqSingleRegisterPort(const char *portName, int AXI_BaseAddress)
-#
-# For example:
-# initZynqSingleRegisterPort("$(SPORT)", 0x43C00000)
-# !!! For now, SPORT MUST come first, RPORT MUST come second
-initZynqSingleRegisterPort("$(SPORT)", 0x43C00000)
-initZynqSingleRegisterPort("$(RPORT)", 0x43C20000)
+# initZynqSingleRegisterPort(const char *portName, const char *componentName)
+initZynqSingleRegisterPort("$(SPORT)", "softGlue_")
+initZynqSingleRegisterPort("$(RPORT)", "softGlueReg32_")
 
 
 ################################################################################
@@ -89,11 +84,21 @@ doAfterIocInit("create_manual_set('$(CONFIG)Menu.req','P=$(PREFIX),CONFIG=$(CONF
 #doAfterIocInit("sampleCustomInterruptPrepare(0x10000, 0x0)")
 
 # attach pixelTrigger histogrammer to FO_16 interrupt.
-# test
-#doAfterIocInit("pixelTriggerPrepare(0x43C30000, 0x80000000, 100, 100, 7)")
-# asub
-doAfterIocInit("pixelTriggerPrepare(0x43C30000, 0x80000000)")
-dbLoadRecords("$(SOFTGLUEZYNQ)/db/pixelTrigger.db","P=$(PREFIX),Q=1,N=1000000")
+# pixelTriggerPrepare(char *componentName, epicsUInt32 risingMask, int fifoSize)
+#var pixelTriggerDebug,1
+doAfterIocInit("pixelTriggerPrepare(pixelFIFO_, 0x80000000, 1024)")
+dbLoadRecords("$(SOFTGLUEZYNQ)/db/pixelTrigger.db","P=$(PREFIX),Q=1,N=40000")
+
+# attach MCS to FO_16 interrupt.
+# pixelTriggerPrepare(char *componentName, epicsUInt32 risingMask, int fifoSize)
+#var MCSADebug,1
+#doAfterIocInit("MCSPrepare(pixelFIFO_, 0x80000000, 1024)")
+#dbLoadRecords("$(SOFTGLUEZYNQ)/db/MCSAsub.db","P=$(PREFIX),Q=1,N=40000")
+
+# readSoftGlueCounter_ISR
+var readSoftGlueCounter_ISRDebug, 1
+#dbLoadRecords("$(SOFTGLUEZYNQ)/db/readSoftGlueCounter_ISR.db","P=$(PREFIX),Q=SG_RdCntr:,N=100000")
+#doAfterIocInit("readSoftGlueCounter_ISRPrepare(0x40000000)")
 
 # debug:
 dbLoadRecords("$(ASYN)/db/asynRecord.db","P=zzz:,R=asynSoftGlue,PORT=$(SPORT),ADDR=0,OMAX=0,IMAX=0")

@@ -1,14 +1,15 @@
 #!/bin/sh
-
-# load FPGA
-# Can either do it here, or have softGlue.iocsh use "system" command.
-#loadFPGA_3_IO.sh
+# set path to include EPICS executables
+export PATH=$PATH:/net/s100dserv/xorApps/zed/epics/base-3.15.3/bin/linux-arm
+caRepeater&
 
 # ensure that multiple, simultaneous IOCs are not started by this user ID
 
+# petalinux doesn't have pgrep
 MY_UID=`id -u`
-IOC_PID="`/usr/bin/pgrep zzz\$ -u ${MY_UID}`"
-
+# petalinux doesn't ha epgrep
+#IOC_PID="`/usr/bin/pgrep zzz\$ -u ${MY_UID}`"
+IOC_PID="`ps | awk '{sub(/.*\//, "", $5)} $5 ~ /zzz/ {print $1}'`"
 if [ "" != "${IOC_PID}" ] ; then
   echo "zzz IOC is already running, won't start a new one, PID=${IOC_PID}"
   exit 1

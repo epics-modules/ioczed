@@ -1,0 +1,32 @@
+file "$(TOP)/zzzApp/Db/zedLOreg.template"
+{
+pattern
+{P,R,C,N, SCAN}
+# 0x00 mm2s dma control: 0:run/stop; 2:reset; the rest is irq stuff
+{zzz:,reg5_,5,0,8}
+
+# 0x04 mm2s dma status:  0:halted; 1: idle; 4:err; 5:err; 6:err
+{zzz:,reg5_,5,1,8}
+
+# 0x18	mm2s source address lsword
+{zzz:,reg5_,5,6,8}
+# 0x1c	mm2s source address msword
+{zzz:,reg5_,5,7,8}
+
+# 0x28	mm2s transfer length (bytes)
+{zzz:,reg5_,5,10,8}
+
+# 0x30	s2mm dma control
+{zzz:,reg5_,5,12,8}
+
+# 0x34	s2mm dma status
+{zzz:,reg5_,5,13,8}
+
+# 0x48	s2mm dest address lsword
+{zzz:,reg5_,5,18,8}
+# 0x4c	s2mm dest address msword
+{zzz:,reg5_,5,19,8}
+
+# 0x58	s2mm buffer length (bytes)
+{zzz:,reg5_,5,22,8}
+}
