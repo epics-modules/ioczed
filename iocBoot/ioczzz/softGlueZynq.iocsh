@@ -86,8 +86,8 @@ doAfterIocInit("create_manual_set('$(CONFIG)Menu.req','P=$(PREFIX),CONFIG=$(CONF
 # attach pixelTrigger histogrammer to FO_16 interrupt.
 # pixelTriggerPrepare(char *componentName, epicsUInt32 risingMask, int fifoSize)
 #var pixelTriggerDebug,1
-doAfterIocInit("pixelTriggerPrepare(pixelFIFO_, 0x80000000, 1024)")
-dbLoadRecords("$(SOFTGLUEZYNQ)/db/pixelTrigger.db","P=$(PREFIX),Q=1,N=40000")
+#doAfterIocInit("pixelTriggerPrepare(pixelFIFO_, 0x80000000, 1024)")
+#dbLoadRecords("$(SOFTGLUEZYNQ)/db/pixelTrigger.db","P=$(PREFIX),Q=1,N=40000")
 
 # attach MCS to FO_16 interrupt.
 # pixelTriggerPrepare(char *componentName, epicsUInt32 risingMask, int fifoSize)
