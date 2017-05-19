@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=609
-		y=734
+		x=1187
+		y=50
 		width=440
 		height=180
 	}
@@ -1496,6 +1496,21 @@ composite {
 		name="readSoftGlueCounter.adl"
 		args="P=zzz:,Q=SG_RdCntr:"
 	}
+	display[12] {
+		label="pixelTriggerDma"
+		name="pixelTriggerDma.adl"
+		args="P=zzz:,Q=1"
+	}
+	display[13] {
+		label="pixelTriggerDmaImage 1"
+		name="pixelTriggerDma2D.adl"
+		args="P=zzz:,letter=I"
+	}
+	display[14] {
+		label="histScalerDma"
+		name="histScalerDma.adl"
+		args="P=zzz:,Q=1"
+	}
 	clr=0
 	bclr=17
 	label="-softGlue"
@@ -1722,7 +1737,7 @@ composite {
 	object {
 		x=280
 		y=160
-		width=70
+		width=35
 		height=20
 	}
 	display[0] {
@@ -2038,4 +2053,55 @@ composite {
 	clr=0
 	bclr=17
 	label="-zed2"
+}
+"related display" {
+	object {
+		x=315
+		y=160
+		width=35
+		height=20
+	}
+	display[0] {
+		label="zedLOreg 7 0-9"
+		name="zedLOreg10.adl"
+		args="P=zzz:,R=reg7_,N0=0,N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8,N9=9"
+	}
+	display[1] {
+		label="zedLOreg 7 10-19"
+		name="zedLOreg10.adl"
+		args="P=zzz:,R=reg7_,N0=10,N1=11,N2=12,N3=13,N4=14,N5=15,N6=16,N7=17,N8=18,N9=19"
+	}
+	display[2] {
+		label="zedLOreg 7 20-29"
+		name="zedLOreg10.adl"
+		args="P=zzz:,R=reg7_,N0=20,N1=21,N2=22,N3=23,N4=24,N5=25,N6=26,N7=27,N8=28,N9=29"
+	}
+	display[3] {
+		label="zedLOreg 7 30-39"
+		name="zedLOreg10.adl"
+		args="P=zzz:,R=reg7_,N0=30,N1=31,N2=32,N3=33,N4=34,N5=35,N6=36,N7=37,N8=38,N9=39"
+	}
+	display[4] {
+		label="zedLOreg 7 40-49"
+		name="zedLOreg10.adl"
+		args="P=zzz:,R=reg7_,N0=40,N1=41,N2=42,N3=43,N4=44,N5=45,N6=46,N7=47,N8=48,N9=49"
+	}
+	display[5] {
+		label="zedLOreg 7 50-59"
+		name="zedLOreg10.adl"
+		args="P=zzz:,R=reg7_,N0=50,N1=51,N2=52,N3=53,N4=54,N5=55,N6=56,N7=57,N8=58,N9=59"
+	}
+	display[6] {
+		label="zedLOreg 7 60-69"
+		name="zedLOreg10.adl"
+		args="P=zzz:,R=reg7_,N0=60,N1=61,N2=62,N3=63,N4=64,N5=65,N6=66,N7=67,N8=68,N9=69"
+	}
+	display[7] {
+		label="zedLOreg 7 70-79"
+		name="zedLOreg10.adl"
+		args="P=zzz:,R=reg7_,N0=70,N1=71,N2=72,N3=73,N4=74,N5=75,N6=76,N7=77,N8=78,N9=79"
+	}
+	clr=0
+	bclr=17
+	label="-zed3"
 }
