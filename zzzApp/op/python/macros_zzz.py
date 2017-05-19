@@ -747,3 +747,70 @@ def readCounterFFT(readCounter="zzz:SG_RdCntr:", readFreq=1000, arrayCalc="zzz:S
 	epics.caput(t, freq)
 	# restore "oneshot" mode
 	#epics.caput(oneshot, save_oneshot)
+
+def showClocks():
+	inputFreq = 100
+	config = epics.caget("zzz:reg6_RB%d"%(0x200/4))
+	div = config & 0xff
+	mult = (config>>8) & 0xff
+	frac = (config>>16) & 0x3ff
+	frac_enable = config>>26 & 0x1
+	print "common: div=%d, mult=%d, frac=%d, frac_enable=%d" % (div, mult, frac, frac_enable)
+	baseFreq = (inputFreq/div)*mult
+
+	for clock in range(0,6):
+		addr = 0x208 + 12*clock
+		config = epics.caget("zzz:reg6_RB%d"%(addr/4))
+		div = config & 0xff
+		frac = (config>>8) & 0x3ff
+		frac_enable = (config>>18) & 0x1
+		div_full = div + frac/1000.
+		freq = baseFreq/div_full
+		#print "clock %d: div=%d, frac=%d, frac_enable=%d, f=%f MHz" % (clock+1, div, frac, frac_enable, freq)
+		print "clock %d: f=%.3f MHz" % (clock+1, freq)
+
+def setClock(clock=1, f_MHz=10.):
+	if (clock<1 or clock>6):
+		print "Can't set that clock"
+		return
+	if (f_MHz<10. or f_MHz>800):
+		print "Can't set to that frequency"
+		return
+
+	clockConfigReg = "zzz:reg6_%d"%(0x25c/4)
+	#clockConfigReg = "zzz:reg6_%d"%(0x5c/4)
+
+	inputFreq = 100
+	config = epics.caget("zzz:reg6_RB%d"%(0x200/4))
+	div = config & 0xff
+	mult = (config>>8) & 0xff
+	frac = (config>>16) & 0x3ff
+	frac_enable = config>>26 & 0x1
+	#print "common: div=%d, mult=%d, frac=%d, frac_enable=%d" % (div, mult, frac, frac_enable)
+	baseFreq = (inputFreq/div)*mult
+
+	div_full = baseFreq/float(f_MHz)
+	div = int(div_full)
+	frac = int((div_full - div) * 1000)
+	#print "clock %d: div=%d, frac=%d" % (clock, div, frac)
+	regNum = (0x208 + 12*(clock-1))/4
+	config = (div & 0xff) + ((frac & 0x3ff)<<8) + (1<<18)
+	#print "config=%x" % config
+	epics.caput("zzz:reg6_%d"%regNum, config)
+	epics.caput(clockConfigReg, 7)
+	epics.caput(clockConfigReg, 2)
+	epics.caput("zzz:reg6_RB%d.PROC"%regNum, 1)
+	config = epics.caget("zzz:reg6_RB%d"%regNum)
+	div = config & 0xff
+	frac = (config>>8) & 0x3ff
+	frac_enable = (config>>18) & 0x1
+	div_full = div + float(frac)/1000
+	freq = baseFreq/div_full
+	print "clock %d: div=%d, frac=%d, frac_enable=%d, f=%f MHz" % (clock, div, frac, frac_enable, freq)
+	print "clock %d: f=%f MHz regNum=%d" % (clock, freq, regNum)
+
+def readClockRegisters():
+
+	for i in range(0,160):
+		regVal = epics.caget("zzz:reg6_RB%d"%(i))
+		print "reg %d = 0x%x" % (i, regVal)
