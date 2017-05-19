@@ -55,6 +55,8 @@ dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=$(PREFI
 
 < softGlueZynq.iocsh
 
+# begin debug/diagnostic to support softGlueZynq development
+
 # devA32ZedConfig(card,a32base,nreg,iVector,iLevel) 
 #    card    = card number                          
 #    a32base = base address of AXI component                 
@@ -62,52 +64,40 @@ dbLoadRecords("$(CAPUTRECORDER)/caputRecorderApp/Db/caputRecorder.db","P=$(PREFI
 #    iVector = interrupt vector (MRD100 ONLY !!)    
 #    iLevel  = interrupt level  (MRD100 ONLY !!)    
 
-var devA32ZedDebug,1
+#var devA32ZedDebug,1
 
 # softGlue 300 IO component
-#devA32ZedConfig(0, 0x43C00000, 140, 0, 0)
-devA32ZedConfig(0, "softGlue_", 0, 140)
-dbLoadTemplate("zedLOreg0.substitutions")
+#devA32ZedConfig(0, "softGlue_", 0, 140)
+#dbLoadTemplate("zedLOreg0.substitutions")
 
 # softGlue reg32 component
-#devA32ZedConfig(1, 0x43C20000, 64, 0, 0)
-devA32ZedConfig(1, "softGlueReg32_", 0, 64)
-dbLoadTemplate("zedLOreg1.substitutions")
+#devA32ZedConfig(1, "softGlueReg32_", 0, 64)
+#dbLoadTemplate("zedLOreg1.substitutions")
 
 # pixelFIFO 0
-#devA32ZedConfig(2, 0x43C30000, 4, 0, 0)
-devA32ZedConfig(2, "pixelFIFO_", 0, 4)
-dbLoadTemplate("zedLOreg2.substitutions")
+#devA32ZedConfig(2, "pixelFIFO_", 0, 4)
+#dbLoadTemplate("zedLOreg2.substitutions")
 
 # interrupt part of softGlue component
-#devA32ZedConfig(4, 0x43C10000, 5, 0, 0)
-devA32ZedConfig(4, "softGlue_" 1, 5)
-dbLoadTemplate("zedLOreg4.substitutions")
+#devA32ZedConfig(4, "softGlue_" 1, 5)
+#dbLoadTemplate("zedLOreg4.substitutions")
 
 
 # dynamic clock config
-#devA32ZedConfig(6, 0x43c50200, 5, 0, 0)
-devA32ZedConfig(6, "clk_wiz", 0, 160)
-dbLoadTemplate("zedLOreg6.substitutions")
+#devA32ZedConfig(6, "clk_wiz", 0, 160)
+#dbLoadTemplate("zedLOreg6.substitutions")
 
+# end debug/diagnostic to support softGlueZynq development
 
-# test MCS code (pixelFIFO 1)
-#dbLoadRecords("$(SOFTGLUEZYNQ)/db/MCS.db","P=$(PREFIX),Q=MCS,N=5000")
-#doAfterIocInit("seq &MCS, 'P=$(PREFIX),Q=MCS,H=SG:,N=4000,AXI_Addr=0x43C40000'")
-
-# test DMA code
-#dbLoadRecords("$(SOFTGLUEZYNQ)/db/DMA.db","P=$(PREFIX),Q=DMA,N=50000")
-#doAfterIocInit("seq &DMA, 'P=$(PREFIX),Q=DMA,H=SG:,N=4000,AXI_Addr=0x40400000'")
-
-# test pixelTrigger code (pixelFIFO 0)
-#dbLoadRecords("$(SOFTGLUEZYNQ)/db/MCS.db","P=$(PREFIX),Q=MCSp,N=5000")
-#doAfterIocInit("seq &MCS, 'P=$(PREFIX),Q=MCSp,H=SG:,N=4000,AXI_Addr=0x43C30000'")
 
 # if you have hdf5 and szip, you can use this
 #< areaDetector.cmd
 
+#var devSGscaler16Debug,10
+dbLoadRecords("$(STD)/stdApp/Db/scaler16m.db","P=$(PREFIX),S=scaler1,OUT=#C0 S0 @, DTYP=SGscaler16, FREQ=10000000")
+
 # soft scaler for testing
-< softScaler.cmd
+#< softScaler.cmd
 
 # user-assignable ramp/tweak
 dbLoadRecords("$(STD)/stdApp/Db/ramp_tweak.db","P=$(PREFIX),Q=rt1")
