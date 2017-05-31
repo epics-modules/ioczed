@@ -1,7 +1,7 @@
 #!/bin/csh -f
 
 # caller (typically: start_epics) MUST make these definitions
-# setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps_5_5/support/zzz
+# setenv EPICS_APP /home/oxygen/MOONEY/epics/synApps_5_8/ioc/zzz
 # setenv EPICS_APP_ADL_DIR ${EPICS_APP}/zzzApp/op/adl
 
 set output = `perl $EPICS_APP/release.pl $EPICS_APP`
@@ -118,4 +118,4 @@ if (! ${?MEDM_EXEC_LIST}) setenv MEDM_EXEC_LIST 'Probe;probe &P &'
 
 # This should agree with the environment variable set by the ioc
 # see 'putenv "EPICS_CA_MAX_ARRAY_BYTES=64008"' in iocBoot/ioc<target>/st.cmd
-setenv EPICS_CA_MAX_ARRAY_BYTES 200100
+setenv EPICS_CA_MAX_ARRAY_BYTES 8000100
