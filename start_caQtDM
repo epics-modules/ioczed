@@ -125,6 +125,6 @@ setenv EDITOR nedit
 
 #setenv LD_LIBRARY_PATH /APSshare/caqtdm/lib:/APSshare/epics/base-3.14.12.3/lib/linux-x86_64
 #setenv QT_PLUGIN_PATH /APSshare/caqtdm/plugins
-alias caQtDM /APSshare/bin/caQtDM
+alias caQtDM /APSshare/bin/caQtDM-4.0.0
 
 caQtDM -noMsg zzz.ui&
